@@ -14,8 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { UploadDropzone } from "@uploadthing/react";
 import { ChevronLeft, XIcon } from "lucide-react";
-import image from "next/image";
-import Submitbut from "../Submitbut";
+
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -29,10 +28,11 @@ import { useActionState, useState } from "react";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { productSchema } from "@/app/lib/ZodSchema";
-import { createProd, editProd } from "@/app/action";
+import { editProd } from "@/app/action";
 import Image from "next/image";
 import { type $Enums } from "@/generated/prisma";
 import Link from "next/link";
+import { SubmitButton } from "../Submitbut";
 interface iappsprops {
   data: {
     id: string;
@@ -194,7 +194,7 @@ export function Editform({ data }: iappsprops) {
                   <UploadDropzone
                     endpoint="imageUploader"
                     onClientUploadComplete={(res) => {
-                      setImage(res.map((r) => r.url));
+                      setImage(res.map((r: any) => r.url));
                     }}
                     onUploadError={() => {
                       alert("something went wrong");
@@ -206,7 +206,7 @@ export function Editform({ data }: iappsprops) {
             </div>
           </CardContent>
           <CardFooter>
-            <Submitbut text={"Edit Product"} />
+            <SubmitButton text={"Edit Product"} />
           </CardFooter>
         </Card>
       </form>

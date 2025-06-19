@@ -1,4 +1,3 @@
-import { AvatarFallback } from "@/components/ui/avatar";
 import {
   Card,
   CardContent,
@@ -6,8 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Avatar } from "@radix-ui/react-avatar";
-import { IndianRupee } from "lucide-react";
+
 import React from "react";
 import Dashboardstat from "../component/Dashboard/Dashboardstat";
 import Recentsales from "../component/Dashboard/Recentsales";
