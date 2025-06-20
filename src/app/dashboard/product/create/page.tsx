@@ -24,13 +24,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { ChevronLeft, XIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useActionState, useState } from "react";
-import { useFormState } from "react-dom";
+
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { productSchema } from "@/app/lib/ZodSchema";
-import { Fira_Code } from "next/font/google";
+
 import Image from "next/image";
-import Submitbut from "@/app/component/Submitbut";
+import { SubmitButton } from "@/app/component/Submitbut";
 
 const Page = () => {
   const handledel = (ind: number) => {
@@ -191,7 +191,7 @@ const Page = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Submitbut text={"Create Product"} />
+            <SubmitButton text={"Create Product"} />
           </CardFooter>
         </Card>
       </form>

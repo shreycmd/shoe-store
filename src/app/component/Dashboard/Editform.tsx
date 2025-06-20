@@ -191,12 +191,12 @@ export function Editform({ data }: iappsprops) {
                     ))}
                   </div>
                 ) : (
-                  <UploadDropzone
+                  <UploadDropzone<{ url: string }>
                     endpoint="imageUploader"
                     onClientUploadComplete={(res) => {
-                      setImage(res.map((r: any) => r.url));
+                      setImage(res.map((r) => r.url));
                     }}
-                    onUploadError={() => {
+                    onUploadError={(error: Error) => {
                       alert("something went wrong");
                     }}
                   />

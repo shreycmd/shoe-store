@@ -1,6 +1,7 @@
 "use client";
-import { Banner, createProd } from "@/app/action";
-import Submitbut from "@/app/component/Submitbut";
+import { Banner } from "@/app/action";
+import { SubmitButton } from "@/app/component/Submitbut";
+
 import { UploadDropzone } from "@/app/lib/uploadthing";
 import { BannerSchema } from "@/app/lib/ZodSchema";
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { AlertTriangle, ChevronLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useActionState, useState } from "react";
-import { useFormState } from "react-dom";
 
 const BannerRoute = () => {
   const [image, setImage] = useState<string | undefined>(undefined);
@@ -94,7 +94,7 @@ const BannerRoute = () => {
           </div>
         </CardContent>
         <CardFooter>
-          <Submitbut text="Create Banner" />
+          <SubmitButton text="Create Banner" />
         </CardFooter>
       </Card>
     </form>
@@ -102,6 +102,3 @@ const BannerRoute = () => {
 };
 
 export default BannerRoute;
-function createproduct(state: undefined): Promise<undefined> | undefined {
-  throw new Error("Function not implemented.");
-}
