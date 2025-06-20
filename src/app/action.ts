@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import {parseWithZod} from "@conform-to/zod"
 import { BannerSchema, productSchema } from "./lib/ZodSchema";
 import { prisma } from "./lib/db";
-import { Schema } from "zod";
+
 import { redis } from "./lib/Redis";
 import { Cart } from "./lib/interface";
 import { revalidatePath } from "next/cache";
@@ -135,7 +135,7 @@ const user=await getUser()
 if(!user||user.email!="shrey03505@gmail.com"){
     return redirect("/")
 }
-let cart:Cart| null=await redis.get(`cart-${user.id}`)
+const cart:Cart| null=await redis.get(`cart-${user.id}`)
 const selectedProduct =await prisma.product.findUnique({
     select:{
         id:true,
@@ -197,7 +197,7 @@ export async function delItem(formData: FormData) {
 
   const productId = formData.get("productId");
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`);
+  const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
   if (cart && cart.item) {
     const filteredItems = cart.item.filter((item) => item.id !== productId);
@@ -227,7 +227,7 @@ export async function checkOut() {
     return redirect("/");
   }
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`);
+  const cart: Cart | null = await redis.get(`cart-${user.id}`);
 
   if (cart && cart.item) {
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =

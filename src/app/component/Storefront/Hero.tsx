@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import React from "react";
-import { date } from "zod";
+
 async function getData() {
   const gdata = await prisma.banner.findMany({
     orderBy: {

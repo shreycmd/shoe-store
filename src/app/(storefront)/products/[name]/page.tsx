@@ -1,7 +1,7 @@
 import ProductCard from "@/app/component/Storefront/ProductCard";
 import { prisma } from "@/app/lib/db";
 import { notFound } from "next/navigation";
-import { title } from "process";
+
 import React from "react";
 const getdata = async (pc: string) => {
   switch (pc) {
